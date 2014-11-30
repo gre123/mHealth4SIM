@@ -1,0 +1,34 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{SLM{\etalchar{+}}13}
+
+\bibitem[LCL12]{Lee:2012:MPM:2370216.2370320}
+Hosub Lee, Young~Sang Choi, and Sunjae Lee.
+\newblock Mobile posture monitoring system to prevent physical health risk of
+  smartphone users.
+\newblock In {\em Proceedings of the 2012 ACM Conference on Ubiquitous
+  Computing}, UbiComp '12, pages 592--593, New York, NY, USA, 2012. ACM.
+
+\bibitem[RPC13]{6583819}
+K.~Rozanowski, Z.~Piotrowski, and M.~Ciolek.
+\newblock Mobile application for driver's health status remote monitoring.
+\newblock In {\em Wireless Communications and Mobile Computing Conference
+  (IWCMC), 2013 9th International}, pages 1738--1743, July 2013.
+
+\bibitem[SLM{\etalchar{+}}13]{6655256}
+B.M. Silva, I.M. Lopes, M.B. Marques, J.J.P.C. Rodrigues, and M.L. Proenca.
+\newblock A mobile health application for outpatients medication management.
+\newblock In {\em Communications (ICC), 2013 IEEE International Conference on},
+  pages 4389--4393, June 2013.
+
+\bibitem[SMS{\etalchar{+}}11]{5969916}
+A.~Secerbegovic, A.~Mujcic, N.~Suljanovic, M.~Nurkic, and J.~Tasic.
+\newblock The research mhealth platform for ecg monitoring.
+\newblock In {\em Telecommunications (ConTEL), Proceedings of the 2011 11th
+  International Conference on}, pages 103--108, June 2011.
+
+\bibitem[Var14]{Varshney2014}
+Upkar Varshney.
+\newblock Mobile health: Four emerging themes of research.
+\newblock {\em Decision Support Systems}, 66(0):20 -- 35, 2014.
+
+\end{thebibliography}

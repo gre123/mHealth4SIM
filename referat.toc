@@ -1,0 +1,14 @@
+\select@language {polish}
+\select@language {polish}
+\contentsline {section}{\numberline {1}Wst\IeC {\k e}p teoretyczny}{3}
+\contentsline {section}{\numberline {2}Przyk\IeC {\l }ady rozwi\IeC {\k a}za\IeC {\'n}}{3}
+\contentsline {subsection}{\numberline {2.1}Monitorowanie pacjenta}{3}
+\contentsline {paragraph}{Monitorowanie postury \cite {Lee:2012:MPM:2370216.2370320}\\}{3}
+\contentsline {paragraph}{Ocena zdrowia i zdolno\IeC {\'s}ci kierowcy \cite {6583819}\\}{3}
+\contentsline {paragraph}{Diagnozowanie depresji\\}{4}
+\contentsline {subsection}{\numberline {2.2}Zarz\IeC {\k a}dzanie informacj\IeC {\k a}}{4}
+\contentsline {paragraph}{Zarz\IeC {\k a}dzanie chorobami przewlek\IeC {\l }ymi\\}{4}
+\contentsline {paragraph}{Zarz\IeC {\k a}dzanie lekami\\}{4}
+\contentsline {subsection}{\numberline {2.3}Problem bezpiecze\IeC {\'n}stwa}{5}
+\contentsline {section}{\numberline {3}Zastosowania}{5}
+\contentsline {section}{\numberline {4}Podsumowanie}{5}
