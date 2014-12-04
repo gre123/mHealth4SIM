@@ -1,2 +1,3 @@
 %i znów matlab...
 
+getDataIfNecessary();
