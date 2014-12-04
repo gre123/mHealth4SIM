@@ -1,3 +1,8 @@
 %i znów matlab...
+clear all;
+clearvars;
+clc;
 
-getDataIfNecessary();
+rehash toolboxcache
+addpath('./functions');
+res = getDataIfNecessary();

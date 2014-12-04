@@ -14,14 +14,17 @@ dataMode(server)
 mkdir('images');
 cd(server,'pub/DDSM/cases/cancers/cancer_01/case0001');
 dest = dir(server);
-for i = 1:numel(dest)
-    d = dest(i);
-    name = d.name;
-    spl = textscan(name,'%s','Delimiter','.');
-    if strcmp(spl{1,1}(end),'LJPEG')
+for d = dest
+    name = d.name
+    spl = strread(line,'%s','delimiter',' ')(name,'.');
+    if strcmp(spl(2),'LJPEG')
         mget(server,name,'images');
     end
 end
+% mget(server,'C_0001_1.LEFT_CC','images');
+% mget(server,'C_0001_1.RIGHT_CC','images');
+% mget(server,'C_0001_1.LEFT_MLO','images');
+% mget(server,'C_0001_1.LEFT_MLO','images');
 close(server);
 
 return
