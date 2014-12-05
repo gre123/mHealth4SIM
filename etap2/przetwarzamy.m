@@ -1,8 +1,10 @@
-%i znów matlab...
+%Autorzy projektu:
+%Agata Paciorek
+%Piotr Knop
+%Grzegorz Bylina
+%
 clear all;
 clearvars;
 clc;
 
-rehash toolboxcache
-addpath('./functions');
-res = getDataIfNecessary();
+allData = getAllData();
