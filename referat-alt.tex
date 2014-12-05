@@ -1,0 +1,95 @@
+\documentclass[11pt]{aghdpl}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+
+% dodatkowe pakiety
+\usepackage{enumerate}
+\usepackage{listings}
+\lstloadlanguages{TeX}
+
+\lstset{
+  literate={ą}{{\k{a}}}1
+           {ć}{{\'c}}1
+           {ę}{{\k{e}}}1
+           {ó}{{\'o}}1
+           {ń}{{\'n}}1
+           {ł}{{\l{}}}1
+           {ś}{{\'s}}1
+           {ź}{{\'z}}1
+           {ż}{{\.z}}1
+           {Ą}{{\k{A}}}1
+           {Ć}{{\'C}}1
+           {Ę}{{\k{E}}}1
+           {Ó}{{\'O}}1
+           {Ń}{{\'N}}1
+           {Ł}{{\L{}}}1
+           {Ś}{{\'S}}1
+           {Ź}{{\'Z}}1
+           {Ż}{{\.Z}}1
+}
+
+%---------------------------------------------------------------------------
+
+\author{Agata Paciorek, Grzegorz Bylina}
+\shortauthor{A. Paciorek, G. Bylina}
+
+\titlePL{Systemy Informatyczne w Medycynie - referat}
+
+\thesistype{\textbf{M-health}}
+
+\degreeprogramme{Informatyka}
+
+\date{2014}
+
+\department{Katedra Informatyki Stosowanej}
+
+\faculty{Wydział Elektrotechniki, Automatyki,\protect\\[-1mm] Informatyki i Inżynierii Biomedycznej}
+
+
+\setlength{\cftsecnumwidth}{10mm}
+
+%---------------------------------------------------------------------------
+\setcounter{secnumdepth}{4}
+
+\begin{document}
+
+\titlepages
+\setcounter{tocdepth}{3}
+\tableofcontents
+\clearpage
+
+\include{rozdzial1}
+%\include{rozdzial2}
+
+
+
+% itd.
+% \appendix
+% \include{dodatekA}
+% \include{dodatekB}
+% itd.
+
+\bibliographystyle{alpha}
+\bibliography{cytowaniaBylina}
+\bibliography{jabrefPaciorek}
+%\begin{thebibliography}{1}
+%
+%\bibitem{Dil00}
+%A.~Diller.
+%\newblock {\em LaTeX wiersz po wierszu}.
+%\newblock Wydawnictwo Helion, Gliwice, 2000.
+%
+%\bibitem{Lam92}
+%L.~Lamport.
+%\newblock {\em LaTeX system przygotowywania dokumentów}.
+%\newblock Wydawnictwo Ariel, Krakow, 1992.
+%
+%\bibitem{Alvis2011}
+%M.~Szpyrka.
+%\newblock {\em {On Line Alvis Manual}}.
+%\newblock AGH University of Science and Technology, 2011.cccccc
+%\newblock \\\texttt{http://fm.ia.agh.edu.pl/alvis:manual}.
+%
+%\end{thebibliography}
+
+\end{document}
