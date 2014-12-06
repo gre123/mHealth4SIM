@@ -11,14 +11,19 @@
 
 function allData = getAllData()
 
+if exist('allData.mat','file') == 2
+    load 'allData.mat';
+    disp('Za³adowano lokaln¹ bazê');
+    return
+end
 localData = dir('images');
 if numel(localData) <= 2
-    'Folder pusty - pobieram zdjecia ...'
+    disp('Folder pusty - pobieram zdjecia ...');
     urlwrite('http://peipa.essex.ac.uk/pix/mias/all-mias.tar.gz','all-mias.tar.gz');
     untar('all-mias.tar.gz','images');
     delete('all-mias.tar.gz');
 else
-    'Folder nie jest pusty'
+    disp('Folder nie jest pusty');
 end
 
 cd('images')
@@ -33,7 +38,8 @@ for i = 1:length(localData)
 end
 cd('../')
 
-'£adowanie zdjêæ zakoñczone'
+disp('£adowanie zdjêæ zakoñczone');
+save('allData.mat','allData');
 
 return
 

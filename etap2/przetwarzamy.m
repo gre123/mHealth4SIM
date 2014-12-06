@@ -8,3 +8,5 @@ clearvars;
 clc;
 
 allData = getAllData();
+
+processedData = processScans(allData);
