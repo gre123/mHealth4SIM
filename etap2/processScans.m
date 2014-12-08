@@ -4,8 +4,8 @@
 %Piotr Knop
 %Grzegorz Bylina
 %
-%Funkcja do œci¹gania i/lub ³adowania zdjêæ z http://peipa.essex.ac.uk/pix/mias
-% @return allData - lista/macierz struktur o polach:
+%Funkcja do przetwarzania pobranych zdjêæ
+% @return processed - lista/macierz struktur o polach:
     % image - ca³y obraz
     % name - nazwa obrazu
 
@@ -18,7 +18,11 @@ processed = repmat(struct('image',empt,'name',''),1,dataSize);
 first = true;
 for k=1:dataSize
     img = allData(1,k).image;
-    img2 = im2bw(img, entropyYen(img)/255);
+    thr = entropyYen(img)/255;
+    if (thr < 130 / 255 ) 
+        thr = 130 / 255;
+    end
+    img2 = im2bw(img, thr);
     img3 = logical(zeros(x,y));
     
     %zaznaczanie elementów brzegowych
@@ -39,7 +43,7 @@ for k=1:dataSize
     
     %rekonstrukcja brzegu
     changes = true;
-    st = strel('disk',9);
+    st = strel('disk',7);
     while changes
         imgn = imdilate(img3,st);
         imgn(img2==0) = 0;
@@ -48,13 +52,21 @@ for k=1:dataSize
         end
         img3 = imgn;
     end
+    %odjêcie elementów brzegowych od obrazu
     img2(img3==1) = 0;
-    processed(1,k).image = logical(img2);
+    img2 = logical(img2);
+    %otwarcie obrazu w celu usuniêcia zanieczyszczeñ
+    img4 = imopen(img2,st);
+    img4 = imdilate(img4,st);
+    img4(img2==0) = 0;
+    processed(1,k).image = logical(img4);
     processed(1,k).name = allData(1,k).name;
-    out = [num2str(k/dataSize*100,'%0.2f') '%%'];
+    outStr = [num2str(k/dataSize*100,'%0.2f') '%%'];
+    out = outStr;
     if ~first
-        out = [repmat('\b',1,length(out)-1) out];
+        out = [repmat('\b',1,lenOut) out];
     end
+    lenOut = length(outStr)-1;
     fprintf(out);
     first = false;
 end

@@ -10,3 +10,5 @@ clc;
 allData = getAllData();
 
 processedData = processScans(allData);
+
+displayAll(allData, processedData);
