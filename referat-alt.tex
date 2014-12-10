@@ -1,5 +1,7 @@
-\documentclass[11pt]{aghdpl}
+\documentclass[11pt]{templcl}
+% \documentclass[en,11pt]{aghdpl}  % praca w języku angielskim
 \usepackage[polish]{babel}
+%\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 
 % dodatkowe pakiety
@@ -30,36 +32,49 @@
 
 %---------------------------------------------------------------------------
 
-\author{Agata Paciorek, Grzegorz Bylina}
-\shortauthor{A. Paciorek, G. Bylina}
+\author{Grzegorz Bylina, Agata Paciorek}
+\shortauthor{G. Bylina, A. Paciorek}
 
-\titlePL{Systemy Informatyczne w Medycynie - referat}
+\titlePL{\textbf{mHealth}}
+\titleEN{Thesis in \LaTeX}
 
-\thesistype{\textbf{M-health}}
+\shorttitlePL{mHealth} % skrócona wersja tytułu jeśli jest bardzo długi
+\shorttitleEN{Thesis in \LaTeX}
+
+\thesistype{Systemy informatyczne w medycynie - raport}
+%\thesistype{Master of Science Thesis}
+
+\supervisor{dr hab. Marcin Szpyrka, prof. n.}
+%\supervisor{Marcin Szpyrka PhD, DSc}
 
 \degreeprogramme{Informatyka}
+%\degreeprogramme{Computer Science}
 
 \date{2014}
 
 \department{Katedra Informatyki Stosowanej}
+%\department{Department of Applied Computer Science}
 
 \faculty{Wydział Elektrotechniki, Automatyki,\protect\\[-1mm] Informatyki i Inżynierii Biomedycznej}
+%\faculty{Faculty of Electrical Engineering, Automatics, Computer Science and Biomedical Engineering}
+
 
 
 \setlength{\cftsecnumwidth}{10mm}
 
 %---------------------------------------------------------------------------
-\setcounter{secnumdepth}{4}
 
 \begin{document}
 
 \titlepages
-\setcounter{tocdepth}{3}
+
 \tableofcontents
 \clearpage
 
 \include{rozdzial1}
-%\include{rozdzial2}
+\include{rozdzial2}
+\include{rozdzial3}
+\include{rozdzial4}
 
 
 
@@ -72,24 +87,5 @@
 \bibliographystyle{alpha}
 \bibliography{cytowaniaBylina}
 \bibliography{jabrefPaciorek}
-%\begin{thebibliography}{1}
-%
-%\bibitem{Dil00}
-%A.~Diller.
-%\newblock {\em LaTeX wiersz po wierszu}.
-%\newblock Wydawnictwo Helion, Gliwice, 2000.
-%
-%\bibitem{Lam92}
-%L.~Lamport.
-%\newblock {\em LaTeX system przygotowywania dokumentów}.
-%\newblock Wydawnictwo Ariel, Krakow, 1992.
-%
-%\bibitem{Alvis2011}
-%M.~Szpyrka.
-%\newblock {\em {On Line Alvis Manual}}.
-%\newblock AGH University of Science and Technology, 2011.cccccc
-%\newblock \\\texttt{http://fm.ia.agh.edu.pl/alvis:manual}.
-%
-%\end{thebibliography}
 
 \end{document}

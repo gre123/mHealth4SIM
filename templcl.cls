@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-% File:     aghdpl.cls           (LaTeX Document class option "aghdpl")
+% File:     templcl.cls           (LaTeX Document class option "templcl")
 %          
 % Author:  Marcin Szpyrka     (mszpyrka@agh.edu.pl)
 %          Grzegorz J. Nalepa (gjn@agh.edu.pl)
@@ -8,7 +8,7 @@
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\message{*** [aghdpl.cls] ---  (MSz, GJN)  v2.0.1 <24.06.2014>  ***}       
+\message{*** [templcl.cls] ---  (MSz, GJN)  v2.0 <19.11.2013>  ***}       
 
 \newif\ifpdflatex\pdflatexfalse
 \NeedsTeXFormat{LaTeX2e} % 
@@ -58,7 +58,6 @@
 \begin{tabular}{p{45mm}l}
 Autor: & {\itshape \@author}\\[-1mm]
 Kierunek studiów: & {\itshape \@degreeprogramme}\\[-1mm]
-Opiekun pracy: & {\itshape \@supervisor}\\
 \end{tabular}
 }
 
@@ -105,7 +104,7 @@ Supervisor: & {\itshape \@supervisor}\\
 {\sffamily\Large\itshape \@titlePL}
 \vspace*{1mm}
 
-{\sffamily\Large\itshape \@titleEN}
+
 \vspace*{38mm}
 \end{center}
 
@@ -118,26 +117,7 @@ Supervisor: & {\itshape \@supervisor}\\
 
 \centerline{\small\sffamily Krak\'{o}w, \@date}
 
-\clearpage 
-\thispagestyle{empty} 
 
-{~~}\vspace{20mm}
-
-{\large\itshape O\'swiadczam, \'swiadomy(-a) odpowiedzialno\'sci karnej za po\'swiadczenie nieprawdy, \.ze \mbox{niniejsz\k{a}} prac\k{e} dyplomow\k{a} wykona\l{}em(-am) osobi\'scie i samodzielnie i nie korzysta\l{}em(-am) ze \'zr\'ode\l{} innych ni\.z wymienione w pracy.}
-
-
-\clearpage \titlepage
-
-\vspace*{15cm} \vfill
-\begin{flushright} 
-\begin{minipage}[!h]{10cm}
-{\Large\itshape \@acknowledgements}
-\end{minipage}
-\end{flushright}
-
-\clearpage
-\thispagestyle{empty}
-\vspace*{15cm} \vfill
 \clearpage
 
 \setcounter{page}{5}
