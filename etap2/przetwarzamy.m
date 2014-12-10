@@ -11,4 +11,6 @@ allData = getAllData();
 
 processedData = processScans(allData);
 
-displayAll(allData, processedData);
+contouredData = contourResults(processedData);
+
+displayAllColored(allData, contouredData);
