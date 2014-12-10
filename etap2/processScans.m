@@ -16,6 +16,7 @@ dataSize = numel(allData);
 empt = logical(zeros(x,y));
 processed = repmat(struct('image',empt,'name',''),1,dataSize);
 first = true;
+st = strel('disk',7);
 for k=1:dataSize
     img = allData(1,k).image;
     %wyznaczanie lewego i prawego pustego brzegu
@@ -56,6 +57,7 @@ for k=1:dataSize
     end
     [x_c,y_c] = size(img_cut);
     img2 = im2bw(img_cut, thr);
+    img2 = imopen(img2,st);
     img3 = logical(zeros(x_c,y_c));
     
     %zaznaczanie elementów brzegowych
@@ -76,7 +78,6 @@ for k=1:dataSize
     
     %rekonstrukcja brzegu
     changes = true;
-    st = strel('disk',7);
     while changes
         imgn = imdilate(img3,st);
         imgn(img2==0) = 0;
