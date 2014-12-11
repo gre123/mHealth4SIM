@@ -7,10 +7,12 @@ clear all;
 clearvars;
 clc;
 
+range1 = input('WprowadŸ dolny indeks zakresu zdjêæ ');
+range2 = input('WprowadŸ górny indeks zakresu zdjêæ ');
 allData = getAllData();
 
-processedData = processScans(allData);
+processedData = processScans(allData,range1,range2);
 
-contouredData = contourResults(processedData);
+contouredData = contourResults(processedData,range1,range2);
 
-displayAllColored(allData, contouredData);
+displayAllColored(allData, contouredData,range1,range2);

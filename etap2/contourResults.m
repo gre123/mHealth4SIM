@@ -9,15 +9,18 @@
     % image - ca³y obraz
     % name - nazwa obrazu
 
-function contouredData = contourResults(processedData)
+function contouredData = contourResults(processedData,range1,range2)
 disp('Kolorowanie wyników');
-dataSize = numel(processedData);
+dataSize = range2;
+if range2 == 0
+    dataSize = numel(processedData);
+end 
 [x,y] = size(processedData(1,1).image);
 empt = logical(zeros(x,y));
 contouredData = repmat(struct('image',empt,'name',''),1,dataSize);
 st = strel('disk',7);
 first = true;
-for k=1:dataSize
+for k=range1:dataSize
     img = processedData(1,k).image;
     img2 = imdilate(img,st);
     img2(img==1) = 0;

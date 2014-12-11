@@ -9,15 +9,18 @@
     % image - ca³y obraz
     % name - nazwa obrazu
 
-function processed = processScans(allData)
+function processed = processScans(allData,range1,range2)
 disp('Przetwarzanie zdjêæ');
-dataSize = numel(allData);
+dataSize = range2;
+if range2 == 0
+    dataSize = numel(allData);
+end 
 [x,y] = size(allData(1,1).image);
 empt = logical(zeros(x,y));
 processed = repmat(struct('image',empt,'name',''),1,dataSize);
 first = true;
 st = strel('disk',7);
-for k=1:dataSize
+for k=range1:dataSize
     img = allData(1,k).image;
     %wyznaczanie lewego i prawego pustego brzegu
     left_x = 0;

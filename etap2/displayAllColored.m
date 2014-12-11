@@ -9,9 +9,12 @@
     % image - ca³y obraz
     % name - nazwa obrazu
 
-function [] = displayAllColored(allData, contouredData)
-
-for k = 1:numel(contouredData)
+function [] = displayAllColored(allData, contouredData,range1,range2)
+dataSize = range2;
+if range2 == 0
+    dataSize = numel(contouredData);
+end 
+for k = range1:dataSize
     img = allData(1,k).image;
     img2 = contouredData(1,k).image;
     R = img;
