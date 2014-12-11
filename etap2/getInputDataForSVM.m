@@ -7,13 +7,15 @@ for i = range1:dataSize
     currentImage = allData(i).image;
     cornerCount = [];
     thresholds = 1:100;
-    for t = 1:100
+    for t = 5:10:100
         binaryImage = im2bw(currentImage, t/100);
         corners = corner(binaryImage);
+        corners(:,1);
         cornerCount(t) = length(corners(:,1));
+        processed(t) = corners(:,1);
     end
-    %imshow(cornerCount);
+    figure(1);
+    plot(cornerCount,'*');
 end
 
-processed = 0;
 return

@@ -10,6 +10,5 @@
     % name - nazwa obrazu
 
 function processed = processScansSVM(allData,range1,range2)
-   processed = 0;
-   getInputDataForSVM(allData,range1,range2);
+   processed = getInputDataForSVM(allData,range1,range2);
    return;
