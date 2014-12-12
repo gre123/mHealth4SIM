@@ -6,16 +6,21 @@ end
 for i = range1:dataSize
     currentImage = allData(i).image;
     cornerCount = [];
-    thresholds = 1:100;
-    for t = 5:10:100
+    thresholds = 5:10:100;
+    i=0;
+    for t = 1:5:100
+        i=i+1;
         binaryImage = im2bw(currentImage, t/100);
-        corners = corner(binaryImage);
-        corners(:,1);
-        cornerCount(t) = length(corners(:,1));
-        processed(t) = corners(:,1);
+        corners = corner(binaryImage,1000);
+        cornerCount(i) = length(corners(:,1));
     end
     figure(1);
-    plot(cornerCount,'*');
+    plot(thresholds, cornerCount);
+    grid;
+    figure(2)
+    plot(thresholds, gradient(cornerCount))
+    grid;
+    min(gradient(cornerCount))
 end
-
+processed = 0;
 return
