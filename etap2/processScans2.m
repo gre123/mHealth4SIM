@@ -31,7 +31,7 @@ for i = range1:dataSize
     figure(2)
     
     %K-mean Clustering
-    nColors = 3;
+    nColors = 5;
     currentImage = double(allData(i).image(:,:,1:2));
     ab = reshape(currentImage,1024*1024,2);
     % repeat the clustering 3 times to avoid local minima
