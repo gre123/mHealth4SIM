@@ -35,7 +35,7 @@ for i = range1:dataSize
     currentImage = double(allData(i).image(:,:,1:2));
     ab = reshape(currentImage,1024*1024,2);
     % repeat the clustering 3 times to avoid local minima
-    [cluster_idx] = kmeans(ab,nColors);
+    [cluster_idx] = kmeans(ab,nColors,'emptyaction','singleton');
     nrows = size(currentImage,1);
     ncols = size(currentImage,2);
     pixel_labels = reshape(cluster_idx,nrows,ncols);
