@@ -10,5 +10,8 @@
     % name - nazwa obrazu
 
 function processed = processScansSVM(allData,range1,range2)
-   processed = getInputDataForSVM(allData,range1,range2);
+   processed = preprocessingConversionAndKMeanClustering(allData,range1,range2);
+   
+   %processed = subImaging(allData,range1,range2);
+  % [texture,shape] = extractFeatures(allData,range1,range2);
    return;

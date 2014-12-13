@@ -6,9 +6,9 @@ end
 for i = range1:dataSize
     currentImage = allData(i).image;
     cornerCount = [];
-    thresholds = 5:10:100;
+    thresholds = 10:15:100;
     i=0;
-    for t = 1:5:100
+    for t = thresholds
         i=i+1;
         binaryImage = im2bw(currentImage, t/100);
         corners = corner(binaryImage,1000);
@@ -20,7 +20,15 @@ for i = range1:dataSize
     figure(2)
     plot(thresholds, gradient(cornerCount))
     grid;
-    min(gradient(cornerCount))
+    [c,w] = min(gradient(cornerCount));
+    processed.optimThreshold = thresholds(w);
+    binaryImage = im2bw(currentImage, processed.optimThreshold/100);
+    corners = corner(binaryImage,1000);
+    cornersSize = length(corners(:,1));
+    for c = 1:cornersSize
+        cornersIntensity(c) = currentImage(corners(c,1),corners(c,2));
+    end
+    processed.cornersIntensity = cornersIntensity;
 end
-processed = 0;
+
 return

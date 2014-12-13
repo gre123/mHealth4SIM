@@ -12,7 +12,7 @@ range2 = input('WprowadŸ górny indeks zakresu zdjêæ ');
 allData = getAllData();
 
 %processedData = processScans(allData,range1,range2);
-costam = processScansSVM(allData,range1,range2);
+processedData = processScans2(allData,range1,range2);
 %contouredData = contourResults(processedData,range1,range2);
 
 %displayAllColored(allData, contouredData,range1,range2);
