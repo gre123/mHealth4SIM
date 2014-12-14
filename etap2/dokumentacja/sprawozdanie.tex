@@ -1,6 +1,7 @@
-\documentclass{sprawozdanie-agh}
+\documentclass[11pt,openany]{sprawozdanie-agh}
 
 \usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
 \usepackage{listings}
 
 \makeatletter
@@ -15,6 +16,10 @@
 \data{Kraków,2014}
 
 \stronatytulowa{}
+
+\tableofcontents
+
+\clearpage
 
 \section{Wstęp teoretyczny}
 
@@ -57,6 +62,29 @@ Na początku usuwa się szum z obrazu za pomocą filtru homomorficznego. Jest on
 \paragraph{Segmentacja\\}
 Celem jest wyodrębnienie obszaru zainteresowania (ROI) z obrazu. Używana jest to tego bardzo popularna metoda rośnięcia regionu (region growing). Zaczynając od pojedynczego piksela dodajemy do niego kolejne, jeśli są do niego podobne. Otrzymany zostaje region, który zostaje ponownie poddany tej samej metodzie, lecz z mniejszym progiem. Powtarza się do do uzyskania najlepszego konturu. Można zautomatyzować dobieranie odpowiedniego progu korzystając z metod prawdopodobieństwa i funkcji Gaussa. Otrzymany ostatecznie obszar jest prawdopodobnym nowotworem.
 
+\section{Implementacja}
+\subsection{I metoda}
+Po przeanalizowaniu literatury zdecydowaliśmy się na realizację prostego algorytmu, bazującego na binaryzacji i operacjach morfologicznych.
+
+\paragraph{Binaryzacja\\}
+Jako próg binaryzacji postanowiliśmy wybrać liczbę wyznaczaną za pomocą algorytmu entropii Yena.
+
+\paragraph{Pozbywanie się artefaktów binaryzacji\\}
+Ponieważ najczęściej jasność fragmentów żył mieści się w progu binaryzacji, otrzymujemy fałszywe dane. Aby pozbyć się szumów po binaryzacji, dokonaliśmy morfologicznej operacji otwarcia obrazu.
+
+\paragraph{Czyszczenie brzegu\\}
+Po otwarciu obrazu w znacznej części pozbywamy się nieistotnych artefaktów, problemem staje się jednak fragment klatki piersiowej uchwycony na zdjęciach i widoczny z brzegu zdjęcia. Wysoka jasność skóry powoduje, iż po operacji progowania zostaje ona dołączona do obrazu i daje fałszywe wyniki. Ponieważ jednak ma ona styczność z brzegiem obrazu, w celu pozbycia się jej z macierzy wynikowej wykonujemy operację czyszczenia brzegu.
+Polega ona na oznaczeniu miejsc styczności z brzegiem obrazu, a następnie wykonywanie dylatacji zaznaczonych pikseli i operacji "AND" z obrazem po binaryzacji dopóty, dopóki zachodzą jakieś zmiany. Tak odzyskany element brzegowy jest usuwany z obrazu wejściowego.
+
+\paragraph{Dylatacja końcowa\\}
+W ciągu wykonywanych kolejno operacji mogą zostać utracone informacje brzegowe danej zmiany. Ponieważ najistotniejsza jest dla nas sama detekcja zmiany i obwiednia wokół niej, wierne odwzorowanie kształtu anomalii "co do piksela" nie jest istotne - z tego powodu wykonywana jest dylatacja.
+
+\paragraph{Wyznaczanie konturu\\}
+W celu wyznaczenia obwiedni wokół anomalii, wykonywana jest dylatacja na przetworzonym już zdjęciu, a następnie odjęcie od wyniku operacji tegoż zdjęcia przed przekształceniem.
+
+\subsection{II metoda}
+
 \section{API}
+
 
 \end{document}
