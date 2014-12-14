@@ -50,6 +50,12 @@ WLD, czyli Weber law descriptor reprezentuje obraz jako histogram wzbudzeń ró�
 \paragraph{Support vector machine (SVM)\\}
 W tym przypadku również używany jest SVM. Jest to jeden z najbardziej zaawansowanych klasyfikatorów oraz bardzo dobrze znana metoda do klasyfikacji problemu dwu-klasowego. Dodatkowo wykorzystując "radial basis function" (RBF) można w skuteczny sposób zredukować "false-positives" by w jak największym stopniu wyeliminować potencjalne błędy programu.
 
+\subsection{Prosta metoda filtrowania i segmentacji}
+\paragraph{Wstępne przygotowanie obrazu\\}
+Na początku usuwa się szum z obrazu za pomocą filtru homomorficznego. Jest on stosowany, aby w dziedzinie częstotliwości obrazu zwiększyć wartości wysokich częstotliwości, a zmniejszyć wartości niskich częstotliwości.
+
+\paragraph{Segmentacja\\}
+Celem jest wyodrębnienie obszaru zainteresowania (ROI) z obrazu. Używana jest to tego bardzo popularna metoda rośnięcia regionu (region growing). Zaczynając od pojedynczego piksela dodajemy do niego kolejne, jeśli są do niego podobne. Otrzymany zostaje region, który zostaje ponownie poddany tej samej metodzie, lecz z mniejszym progiem. Powtarza się do do uzyskania najlepszego konturu. Można zautomatyzować dobieranie odpowiedniego progu korzystając z metod prawdopodobieństwa i funkcji Gaussa. Otrzymany ostatecznie obszar jest prawdopodobnym nowotworem.
 
 \section{API}
 
