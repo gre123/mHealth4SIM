@@ -29,17 +29,14 @@ for k = range1:dataSize
     subplot(2,2,2);
     imshow(img3);
     subplot(2,2,3);
-    hold on;
     imshow(secondMethodData(k).image);
-    secondMethodData(k).boxes
     if ~isempty(secondMethodData(k).boxes)
-        for i = 1:length(secondMethodData(k).boxes)
+        for i = 1:size(secondMethodData(k).boxes,2)
             if length(secondMethodData(k).boxes(:,i)) == 4
                 rectangle('Position',secondMethodData(k).boxes(:,i),'EdgeColor','r');
             end
         end
     end
-    hold off;
     title(secondMethodData(k).name)
     waitforbuttonpress();
 end

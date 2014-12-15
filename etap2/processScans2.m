@@ -51,6 +51,7 @@ for i = range1:dataSize
          ourGoal = STATS(1).Image;
      end
      ourGoal = imerode(ourGoal,st);
+     ourGoal = imerode(ourGoal,st);
      STATS = regionprops(ourGoal,'Image','Area','BoundingBox');
      %imshow(ourGoal,[]);
      max = 0;

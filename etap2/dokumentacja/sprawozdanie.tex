@@ -9,7 +9,7 @@
 \begin{document}
 
 \przedmiot{Systemy Informatyczne w Medycynie}
-\tytul{System detekcji raka piersi}
+\tytul{Detekcja raka piersi - program}
 \podtytul{Dokumentacja}
 \kierunek{Informatyka}
 \autor{Grzegorz Bylina, Agata Paciorek, Piotr Knop}
@@ -22,9 +22,11 @@
 \clearpage
 
 \section{Wstęp teoretyczny}
+\subsection{Cel aplikacji}
+Celem programu jest porównanie dwóch metod detekcji raka piersi, na podstawie zdjęć mammograficznych w odcieniach szarości. Środowisko, wykorzystane do implementacji to program Matlab.
 
-\section{Koncepcja algorytmów}
-\subsection{Oparte na extreme learining machines (ELM)}
+\subsection{Badania literaturowe?}
+\subsubsection{Oparte na extreme learining machines (ELM)}
 \paragraph{Wstępne przygotowanie obrazu\\}
 Pierwszym krokiem tej metody jest usunięcie szumu z obrazu. Uzyskuje się to poprzez zastosowanie filtru medianowego na oknie 3 x 3 piksele. 
 Następnie należy uwydatnić szczegóły obrazu, gdyż są one zamazane. Pierwszym krokiem jest transformacja oryginalnego obrazu w taki sposób, aby podzielić przedział szarości na dwie części, a następnie zredukować zakres przedziału tak, aby uwydatnić przedział kontrastu oryginalnego obrazu.
@@ -35,7 +37,7 @@ Kolejnym krokiem jest segmentacja krawędzi. W pierwszej kolejności użyty WMM,
 \paragraph{Klasyfikacja nowotworu\\}
 Ponadto opracowane zostały metody do rozpoznawania rodzaju nowotworu. Wykorzystywane są do tego wektory, które charakteryzują dane cechy. Analizowany jest również kształt, wielkość obszaru, czy gładkość krawędzi. Do osiągnięcia należytych wyników wykorzystywane jest tytułowy ELM,czyli "extreme learning machine". Jest to algorytm oparty na sieciach neuronowych, którego cechą jest zdolność bardzo szybkiej nauki. Na podstawie zdefiniowanych wcześniej rodzajów, stara się on odpowiednio dopasować dany obraz po przekształceniach, które zostały wcześniej dokonane.
 
-\subsection{Kombinacja dwóch znanych metod detekcji}
+\subsubsection{Kombinacja dwóch znanych metod detekcji}
 Wykrywanie tą metodą można podzielić na dwie równoległe ścieżki: Detekcję bez nadzoru ("Unsupervised detection") oraz detekcję z nadzorem ("Supervised detection").
 
 \paragraph{Unsupervised detection\\}
@@ -48,14 +50,14 @@ Zadaniem tej części jest nauka i klasyfikacja charakterystyk obiektu. Wykorzys
 Następnie dokonywana jest kombinacja powyższych wyników, której efektem jest wyznaczenie i sklasyfikowania obszaru zawierającego nowotwór.
 Dodatkowo w celu zminimalizowania błędów wykorzystywana jest redukcja tzw. "false-positive" czyli wyników określonych jako podejrzane, które w rzeczywistości okazały się fałszywym alarmem. Uzyskuje się to za pomocą klasyfikatorów, na podstawie których dokonany jest trening algorytmów klasyfikacji.
 
-\subsection{Za pomocą multiscale spatial Weber law}
+\subsubsection{Za pomocą multiscale spatial Weber law}
 \paragraph{Weber law descriptior (WLD)\\}
 WLD, czyli Weber law descriptor reprezentuje obraz jako histogram wzbudzeń różniczkowych, zgodnie z odpowiadającymi kierunkami gradientu. Bazuje na prawie Webera, które mówi, że stosunek przyrostu progu do intensywności tła jest stały. Pierwszym krokiem jest obliczenie różnicy wzbudzenia (DE - differential excitation) dla każdego piksela. Następnie wyliczenie kierunku gradientu (GO - gradient orientation). Na tej podstawie obliczany jest histogram. W ten sposób zostały otrzymane wszystkie krawędzie na obrazie.
 
 \paragraph{Support vector machine (SVM)\\}
 W tym przypadku również używany jest SVM. Jest to jeden z najbardziej zaawansowanych klasyfikatorów oraz bardzo dobrze znana metoda do klasyfikacji problemu dwu-klasowego. Dodatkowo wykorzystując "radial basis function" (RBF) można w skuteczny sposób zredukować "false-positives" by w jak największym stopniu wyeliminować potencjalne błędy programu.
 
-\subsection{Prosta metoda filtrowania i segmentacji}
+\subsubsection{Prosta metoda filtrowania i segmentacji}
 \paragraph{Wstępne przygotowanie obrazu\\}
 Na początku usuwa się szum z obrazu za pomocą filtru homomorficznego. Jest on stosowany, aby w dziedzinie częstotliwości obrazu zwiększyć wartości wysokich częstotliwości, a zmniejszyć wartości niskich częstotliwości.
 
@@ -83,8 +85,52 @@ W ciągu wykonywanych kolejno operacji mogą zostać utracone informacje brzegow
 W celu wyznaczenia obwiedni wokół anomalii, wykonywana jest dylatacja na przetworzonym już zdjęciu, a następnie odjęcie od wyniku operacji tegoż zdjęcia przed przekształceniem.
 
 \subsection{II metoda}
+Drugą wybraną metodą zostało podejście oparte o pracę \cite{Mohapatra:2011:ALD:1947940.1947980}. Poniższy schemat przedstawia działanie algorytmu, opisanego w tej pracy. W naszym programie został on jednak zmodyfikowany.
 
-\section{API}
+\begin{figure}[h!]
+	\centering
+		\includegraphics[scale=0.6]{schemat_Automated_Leukemia_Detection_in_Blood_Microscopic}
+	\caption{Obraz pochodzi z pracy \cite{Mohapatra:2011:ALD:1947940.1947980}}
+\end{figure}
+
+Etapy zmodyfikowanego algorytmu obejmują:
+\begin{itemize}
+\item Wzmacnianie kontrastu (imadjust)
+\item Filtr medianowy (medfilt)
+\item Konwersja RGB -> Lab
+\item K-mean Clustering
+\item Zastosowanie regionprops i wybór mniejszego regionu 
+\item Zastosowanie erozji na tym regionie 
+\item Ponowne zastosowanie regionprops
+\item Zaznaczenie wszystkich wykrytych za drugim razem regionów, prócz największego
+\end{itemize}
+
+\paragraph{K-mean Clustering}
+Podobnie jak w przypadku pracy \cite{Mohapatra:2011:ALD:1947940.1947980} w przetwarzaniu obrazu zostaje wykorzystana technika K-mean Clustering. Pozwoliła ona na wydzielenie dwóch oddzielnych obszarów na obrazie. Jeden z nich powinien być tłem, a drugi zawierać potencjalne niepożądane zmiany/guzy. Ten etap zostaje wykonany za pomocą funkcji kmeans.
+
+\paragraph{Regionprops}
+Do wyciągnięcia informacji z obszaru wydzielonego przez K-mean Clustering zastosowana zostaje funkcja regionprops. Wyciąga ona różne informacje na temat części obrazu. W przypadku tego algorytmu jest stosowana dwa razy. Najpierw na obrazie całego obszaru, aby wyodrębnić mniejszą jego część, na której może się znajdować potencjalny guz. Potem na tym otrzymanym obszarze, uprzednio przetworzonym dodatkowo przez erozję. Dane z tego drugiego wywołania funkcji służą już jako pozycje wykrytych potencjalnych anomalii.
 
 
+\subsection{API}
+Funkcje:
+\begin{itemize}
+\item contourResults
+\item displayAll
+\item displayAllColored - funkcja, odpowiedzialna za wyświetlenie wyników
+\item entropyYen
+\item getAllData - funkcja służy do ładowania zdjęć z bazy "http://peipa.essex.ac.uk/pix/mias/all-mias.tar.gz"
+\item processScans
+\item processScans2 - funkcja, odpowiedzialna za przetworzenie obrazów z danego zakresu metodą II
+\end{itemize}
+Skrypty:
+\begin{itemize}
+\item przetwarzamy - główny moduł programu
+\end{itemize}
+
+\subsection{Opis interfejsu użytkownika}
+Aby zacząć przetwarzać zdjęcia należy otworzyć folder, zawierający program w programie Matlab. Następnie uruchomić skrypt "przetwarzamy.m". Program spyta o zakres zdjęć, które chcemy przetworzyć (indeks dolny i górny). Po podaniu prawidłowego zakresu program będzie kontynuował działanie. Wynikiem finalnym jest okno z obrazem oryginału, obrazem z zaznaczonym obszarem uzyskanym za pomocą metody I oraz obrazem przetworzonym według metody II, na którym również zostały zaznaczone potencjalne anomalie.
+
+\bibliography{bibliografia}
+\bibliographystyle{alpha}
 \end{document}
