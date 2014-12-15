@@ -36,12 +36,11 @@ for i = range1:dataSize
     nColors = 2;
     currentImage = double(allData(i).image(:,:,1:2));
     ab = reshape(currentImage,1024*1024,2);
-    % repeat the clustering 3 times to avoid local minima
     [cluster_idx] = kmeans(ab,nColors,'emptyaction','singleton');
     nrows = size(currentImage,1);
     ncols = size(currentImage,2);
     pixel_labels = reshape(cluster_idx,nrows,ncols);
-    %imshow(pixel_labels,[]), title('image labeled by cluster index');
+    %imshow(pixel_labels,[]), title('obraz po kmeans');
      
 %     %regionprops
      STATS = regionprops(pixel_labels,'Image','Area');
