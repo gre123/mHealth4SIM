@@ -1,4 +1,17 @@
-\begin{thebibliography}{MPS11}
+\providecommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{WYK{\etalchar{+}}14}
+
+\bibitem[Cho14]{Choi2014}
+Kim Dae Hoe Plataniotis Konstantinos N Ro Yong~Man Choi, Jae~Young.
+\newblock Computer-aided detection (cad) of breast masses in mammography:
+  combined detection and ensemble classification.
+\newblock {\em Web of Science}, 2014.
+
+\bibitem[Hus14]{Hussain2014}
+Muhammad Hussain.
+\newblock False-positive reduction in mammography using multiscale spatial
+  weber law descriptor and support vector machines.
+\newblock {\em Neural Computing and Applications}, 25(1):83--93, 2014.
 
 \bibitem[MPS11]{Mohapatra:2011:ALD:1947940.1947980}
 Subrajeet Mohapatra, Dipti Patra, and Sanghamitra Satpathy.
@@ -7,5 +20,19 @@ Subrajeet Mohapatra, Dipti Patra, and Sanghamitra Satpathy.
 \newblock In {\em Proceedings of the 2011 International Conference on
   Communication, Computing \&\#38; Security}, ICCCS '11, pages 184--187, New
   York, NY, USA, 2011. ACM.
+
+\bibitem[PS14]{Patel2014}
+B.C. Patel and G.R. Sinha.
+\newblock Mammography feature analysis and mass detection in breast cancer
+  images.
+\newblock In {\em Electronic Systems, Signal Processing and Computing
+  Technologies (ICESC), 2014 International Conference on}, pages 474--478, Jan
+  2014.
+
+\bibitem[WYK{\etalchar{+}}14]{Wang2014}
+Zhiqiong Wang, Ge~Yu, Yan Kang, Yingjie Zhao, and Qixun Qu.
+\newblock Breast tumor detection in digital mammography based on extreme
+  learning machine.
+\newblock {\em Neurocomputing}, 128(0):175 -- 184, 2014.
 
 \end{thebibliography}

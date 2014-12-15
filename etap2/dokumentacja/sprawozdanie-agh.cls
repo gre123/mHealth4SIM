@@ -38,7 +38,7 @@
 		
 			% Góra strony
 			\textsc{\LARGE \bfseries Akademia Górniczo-Hutnicza}\\[0.2cm]
-			\textsc{\large Wydzia\l \space Elektrotechniki, Automatyki, Informatyki i Elektroniki}\\
+			\textsc{\large Wydzia\l \space Elektrotechniki, Automatyki, Informatyki i Inzynierii Biomedycznej}\\
 			\textsc{\large Kierunek \@kierunek}\\[1.5cm]
 			\begin{figure}[h!]
 				\begin{center}
