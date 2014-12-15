@@ -9,7 +9,8 @@
 \begin{document}
 
 \przedmiot{Systemy Informatyczne w Medycynie}
-\tytul{Detekcja raka piersi - program}
+\tytul{Wspomaganie detekcji anomalii guzopodobnych piersi na podstawie automatycznej analizy zdjęć mammografu
+}
 \podtytul{Dokumentacja}
 \kierunek{Informatyka}
 \autor{Grzegorz Bylina, Agata Paciorek, Piotr Knop}
@@ -25,7 +26,7 @@
 \subsection{Cel aplikacji}
 Celem programu jest porównanie dwóch metod detekcji raka piersi, na podstawie zdjęć mammograficznych w odcieniach szarości. Środowisko, wykorzystane do implementacji to program Matlab.
 
-\subsection{Badania literaturowe?}
+\subsection{Analiza literatury - metody}
 \subsubsection{Oparte na extreme learining machines (ELM)}
 \paragraph{Wstępne przygotowanie obrazu\\}
 Pierwszym krokiem tej metody jest usunięcie szumu z obrazu. Uzyskuje się to poprzez zastosowanie filtru medianowego na oknie 3 x 3 piksele. 
@@ -68,6 +69,15 @@ Celem jest wyodrębnienie obszaru zainteresowania (ROI) z obrazu. Używana jest 
 \subsection{I metoda}
 Po przeanalizowaniu literatury zdecydowaliśmy się na realizację prostego algorytmu, bazującego na binaryzacji i operacjach morfologicznych.
 
+Kolejno wykonywane operacje algorytmu to:
+\begin{itemize}
+\item wyselekcjonowanie ROI z pominięciem czarnych fragmentów brzegowych w celu usprawnienia obliczeń
+\item binaryzacja
+\item czyszczenie brzegu
+\item dylatacja
+\item wyznaczanie konturu w celu wizualizacji
+\end{itemize}
+
 \paragraph{Binaryzacja\\}
 Jako próg binaryzacji postanowiliśmy wybrać liczbę wyznaczaną za pomocą algorytmu entropii Yena.
 
@@ -105,22 +115,22 @@ Etapy zmodyfikowanego algorytmu obejmują:
 \item Zaznaczenie wszystkich wykrytych za drugim razem regionów, prócz największego
 \end{itemize}
 
-\paragraph{K-mean Clustering}
+\paragraph{K-mean Clustering\\}
 Podobnie jak w przypadku pracy \cite{Mohapatra:2011:ALD:1947940.1947980} w przetwarzaniu obrazu zostaje wykorzystana technika K-mean Clustering. Pozwoliła ona na wydzielenie dwóch oddzielnych obszarów na obrazie. Jeden z nich powinien być tłem, a drugi zawierać potencjalne niepożądane zmiany/guzy. Ten etap zostaje wykonany za pomocą funkcji kmeans.
 
-\paragraph{Regionprops}
+\paragraph{Regionprops\\}
 Do wyciągnięcia informacji z obszaru wydzielonego przez K-mean Clustering zastosowana zostaje funkcja regionprops. Wyciąga ona różne informacje na temat części obrazu. W przypadku tego algorytmu jest stosowana dwa razy. Najpierw na obrazie całego obszaru, aby wyodrębnić mniejszą jego część, na której może się znajdować potencjalny guz. Potem na tym otrzymanym obszarze, uprzednio przetworzonym dodatkowo przez erozję. Dane z tego drugiego wywołania funkcji służą już jako pozycje wykrytych potencjalnych anomalii.
 
 
 \subsection{API}
 Funkcje:
 \begin{itemize}
-\item contourResults
-\item displayAll
-\item displayAllColored - funkcja, odpowiedzialna za wyświetlenie wyników
-\item entropyYen
+\item contourResults - funkcja odpowiedzialna za wyznaczenie obwiedni wokół znalezionych anomalii; przyjmuje tablicę struktur z przetworzonymi zdjęciami, zwraca tablicę struktur z wyznaczonymi konturami każdej anomalii
+\item displayAll - funkcja służy do wyświetlania w jednym oknie zdjęcia źródłowego i czarno - biały efekt detekcji
+\item displayAllColored - funkcja odpowiedzialna za wyświetlenie wyników; jako wejście przyjmuje tablicę struktur z oryginalnymi zdjęciami oraz tablicę struktur konturów wyznaczonych dla nich, wyświetla czerwoną obwiednię wokół anomalii dla każdego zdjęcia
+\item entropyYen - funkcja wyznacza próg binaryzacji na podstawie metody Yena; jako wejście podawane jest zdjęcie w skali szarości, zwraca liczbę z przedziału 0-255
 \item getAllData - funkcja służy do ładowania zdjęć z bazy "http://peipa.essex.ac.uk/pix/mias/all-mias.tar.gz"
-\item processScans
+\item processScans - funkcja, odpowiedzialna za przetworzenie obrazów z danego zakresu metodą I
 \item processScans2 - funkcja, odpowiedzialna za przetworzenie obrazów z danego zakresu metodą II
 \end{itemize}
 Skrypty:
