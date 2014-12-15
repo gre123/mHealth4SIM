@@ -1,0 +1,30 @@
+\select@language {polish}
+\contentsline {section}{\numberline {1}Wst\IeC {\k e}p teoretyczny}{3}
+\contentsline {subsection}{\numberline {1.1}Cel aplikacji}{3}
+\contentsline {subsection}{\numberline {1.2}Analiza literatury - metody}{3}
+\contentsline {subsubsection}{\numberline {1.2.1}Oparte na extreme learining machines (ELM)}{3}
+\contentsline {paragraph}{Wst\IeC {\k e}pne przygotowanie obrazu\\}{3}
+\contentsline {paragraph}{Wykrycie guza\\}{3}
+\contentsline {paragraph}{Klasyfikacja guza\\}{3}
+\contentsline {subsubsection}{\numberline {1.2.2}Kombinacja dw\IeC {\'o}ch znanych metod detekcji}{3}
+\contentsline {paragraph}{Unsupervised detection\\}{3}
+\contentsline {paragraph}{Supervised detection\\}{3}
+\contentsline {paragraph}{Rezultat\\}{3}
+\contentsline {subsubsection}{\numberline {1.2.3}Za pomoc\IeC {\k a} multiscale spatial Weber law}{3}
+\contentsline {paragraph}{Weber law descriptior (WLD)\\}{3}
+\contentsline {paragraph}{Support vector machine (SVM)\\}{4}
+\contentsline {subsubsection}{\numberline {1.2.4}Prosta metoda filtrowania i segmentacji}{4}
+\contentsline {paragraph}{Wst\IeC {\k e}pne przygotowanie obrazu\\}{4}
+\contentsline {paragraph}{Segmentacja\\}{4}
+\contentsline {section}{\numberline {2}Implementacja}{4}
+\contentsline {subsection}{\numberline {2.1}I metoda}{4}
+\contentsline {paragraph}{Binaryzacja\\}{4}
+\contentsline {paragraph}{Pozbywanie si\IeC {\k e} artefakt\IeC {\'o}w binaryzacji\\}{4}
+\contentsline {paragraph}{Czyszczenie brzegu\\}{4}
+\contentsline {paragraph}{Dylatacja ko\IeC {\'n}cowa\\}{4}
+\contentsline {paragraph}{Wyznaczanie konturu\\}{4}
+\contentsline {subsection}{\numberline {2.2}II metoda}{5}
+\contentsline {paragraph}{K-mean Clustering\\}{5}
+\contentsline {paragraph}{Regionprops\\}{5}
+\contentsline {subsection}{\numberline {2.3}API}{5}
+\contentsline {subsection}{\numberline {2.4}Opis interfejsu u\IeC {\.z}ytkownika}{6}

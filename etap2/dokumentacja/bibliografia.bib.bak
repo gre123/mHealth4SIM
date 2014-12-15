@@ -2,7 +2,7 @@
 % Encoding: Cp1250
 
 
-@InProceedings{Beham2012,
+@InProceedings{6188786,
   Title                    = {Morphological image processing approach on the detection of tumor and cancer cells},
   Author                   = {Beham, M.P. and Gurulakshmi, A.B.},
   Booktitle                = {Devices, Circuits and Systems (ICDCS), 2012 International Conference on},
@@ -14,7 +14,7 @@
   Keywords                 = {biological tissues;biomedical MRI;biotechnology;cancer;cellular biophysics;computerised tomography;image segmentation;medical image processing;patient diagnosis;tumours;CT imaging;K-means clustering algorithm;MRI images;biotechnology;cancer cell detection;medical diagnosis;medical image segmentation;morphological image processing;noise presence;shape analysis;tissue abnormalities;tissue segmentation;tumor detection;Cancer;Computational modeling;Fuzzy logic;Image coding;Image segmentation;Streaming media;X-ray imaging;Fuzzy;Image segmentation;K- means;Morphological Image Processing (MIP);Morphological operations}
 }
 
-@Article{Choi2014,
+@Article{2014Choi,
   Title                    = {Computer-aided detection (CAD) of breast masses in mammography: combined detection and ensemble classification},
   Author                   = {Choi, Jae Young, Kim, Dae Hoe, Plataniotis, Konstantinos N, Ro, Yong Man},
   Journal                  = {Web of Science},
@@ -24,7 +24,7 @@
   Url                      = {http://iopscience.iop.org/0031-9155/59/14/3697/}
 }
 
-@Article{Hussain2014,
+@Article{2014Hussain,
   Title                    = {False-positive reduction in mammography using multiscale spatial Weber law descriptor and support vector machines},
   Author                   = {Hussain, Muhammad},
   Journal                  = {Neural Computing and Applications},
@@ -61,7 +61,7 @@
   Url                      = {http://doi.acm.org/10.1145/1947940.1947980}
 }
 
-@InProceedings{Patel2014,
+@InProceedings{6745425,
   Title                    = {Mammography Feature Analysis and Mass Detection in Breast Cancer Images},
   Author                   = {Patel, B.C. and Sinha, G.R.},
   Booktitle                = {Electronic Systems, Signal Processing and Computing Technologies (ICESC), 2014 International Conference on},
@@ -90,7 +90,7 @@
   Url                      = {http://dx.doi.org/10.1007/11783237_51}
 }
 
-@Article{Wang2014,
+@Article{Wang2014175,
   Title                    = {Breast tumor detection in digital mammography based on extreme learning machine },
   Author                   = {Zhiqiong Wang and Ge Yu and Yan Kang and Yingjie Zhao and Qixun Qu},
   Journal                  = {Neurocomputing },
