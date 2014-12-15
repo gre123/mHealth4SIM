@@ -4,12 +4,10 @@
 %Piotr Knop
 %Grzegorz Bylina
 %
-%Funkcja do œci¹gania i/lub ³adowania zdjêæ z http://peipa.essex.ac.uk/pix/mias
-% @return allData - lista/macierz struktur o polach:
-    % image - ca³y obraz
-    % name - nazwa obrazu
+%Funkcja do wyswietlania
 
-function [] = displayAllColored(allData, contouredData,range1,range2)
+
+function [] = displayAllColored(allData, contouredData,secondMethodData,range1,range2)
 dataSize = range2;
 if range2 == 0
     dataSize = numel(contouredData);
@@ -25,11 +23,24 @@ for k = range1:dataSize
     img3(:,:,1) = R;
     img3(:,:,2) = G;
     img3(:,:,3) = B;
-    subplot(1,2,1);
+    subplot(2,2,1);
     imshow(allData(1,k).image);
     title(allData(1,k).name);
-    subplot(1,2,2);
+    subplot(2,2,2);
     imshow(img3);
+    subplot(2,2,3);
+    hold on;
+    imshow(secondMethodData(k).image);
+    secondMethodData(k).boxes
+    if ~isempty(secondMethodData(k).boxes)
+        for i = 1:length(secondMethodData(k).boxes)
+            if length(secondMethodData(k).boxes(:,i)) == 4
+                rectangle('Position',secondMethodData(k).boxes(:,i),'EdgeColor','r');
+            end
+        end
+    end
+    hold off;
+    title(secondMethodData(k).name)
     waitforbuttonpress();
 end
 
